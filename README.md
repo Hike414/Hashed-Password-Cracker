@@ -1,261 +1,330 @@
-# Advanced Hash-Based Password Cracker
+# 🔓 Advanced Hash-Based Password Cracker
+```
+    ╔═══════════════════════════════════════════════════════════════╗
+    ║                                                               ║
+    ║   ██╗  ██╗ █████╗ ███████╗██╗  ██╗██████╗ ██████╗ ███████╗    ║
+    ║   ██║  ██║██╔══██╗██╔════╝██║  ██║██╔══██╗██╔══██╗██╔════╝    ║
+    ║   ███████║███████║███████╗███████║██████╔╝██████╔╝██          ║
+    ║   ██╔══██║██╔══██║╚════██║██╔══██║██╔═══╝ ██╔══██╗██╔════╗    ║
+    ║   ██║  ██║██║  ██║███████║██║  ██║██║     ██████╔╝███████╗    ║
+    ║   ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═════╝ ╚══════╝    ║
+    ║                                                               ║
+    ║              [ ADVANCED PASSWORD CRACKING SUITE ]             ║
+    ║                     [ FOR PENTESTERS ONLY ]                   ║
+    ╚═══════════════════════════════════════════════════════════════╝
+```
 
-## Overview
+## 💀 OVERVIEW
 
-The Advanced Hash-Based Password Cracker is a comprehensive security testing tool designed for educational purposes and authorized penetration testing. This tool implements multiple password cracking techniques and supports various hash algorithms commonly encountered in security assessments.
+Welcome to the underground, fellow h4x0r. This ain't your script kiddie tool - it's a military-grade password cracking arsenal designed for serious penetration testing and educational warfare. Born from the necessity to break through digital fortresses, this beast implements multiple attack vectors against the most common hash algorithms you'll encounter in the wild.
 
-## Features
+**WARNING**: This tool is designed for WHITE HAT operations only. Use responsibly or face the consequences.
 
-### Supported Hash Algorithms
-- **MD5**: Fast but cryptographically broken hash function
-- **SHA-256**: Secure Hash Algorithm with 256-bit output
-- **Bcrypt**: Adaptive hash function designed for password hashing
-- **Scrypt**: Memory-hard key derivation function
-- **Argon2**: Winner of the Password Hashing Competition
+---
 
-### Attack Methods
-- **Dictionary Attack**: Uses predefined wordlists to guess passwords
-- **Brute Force Attack**: Systematically tries all possible character combinations
-- **Multi-threaded Processing**: Utilizes multiple CPU cores for improved performance
+## ⚡ WEAPONIZED FEATURES
 
-### Optimization Features
-- **Session Management**: Save and resume cracking sessions
-- **Multi-threading**: Parallel processing for faster results
-- **Memory Efficient**: Optimized for handling large wordlists
-- **Progress Tracking**: Monitor cracking progress and performance
+### 🎯 SUPPORTED HASH TARGETS
+```
+[+] MD5        → Legacy target, trivial to crack
+[+] SHA-256    → More robust, but not unbreakable  
+[+] Bcrypt     → Adaptive beast, slow but steady
+[+] Scrypt     → Memory-hungry algorithm
+[+] Argon2     → The new sheriff in town
+```
 
-### User Interfaces
-- **Command Line Interface (CLI)**: Full-featured command-line tool
-- **Graphical User Interface (GUI)**: Modern React-based web interface
+### 🔥 ATTACK VECTORS
+```
+┌─────────────────────────────────────────────────────┐
+│ [DICT]  Dictionary Attack  → Wordlist bombardment   │
+│ [BRUTE] Brute Force       → Raw computational power │
+│ [MULTI] Multi-threading   → Parallel assault        │
+└─────────────────────────────────────────────────────┘
+```
 
-## Installation
+### 🚀 OPTIMIZATION ARSENAL
+- **Session Management** → Never lose progress in long campaigns
+- **Multi-threading** → Harness the full power of your rig
+- **Memory Efficient** → Handle massive wordlists without breaking a sweat  
+- **Progress Tracking** → Monitor your digital siege in real-time
 
-### Prerequisites
-- Python 3.11 or higher
-- Node.js 20.x (for GUI)
-- Required Python packages (see requirements below)
+### 🖥️ DUAL INTERFACE MODES
+- **CLI Mode** → For the terminal warriors
+- **GUI Mode** → For those who prefer point-and-click warfare
 
-### Python Dependencies
+---
+
+## 🛠️ INSTALLATION & DEPLOYMENT
+
+### ⚙️ PREREQUISITES
 ```bash
+# Minimum system requirements
+Python 3.11+     # The snake that bites
+Node.js 20.x     # For the web interface
+```
+
+### 📦 PYTHON ARSENAL
+```bash
+# Deploy the core dependencies
 pip install bcrypt scrypt argon2-cffi psutil
 ```
 
-### GUI Dependencies
-The GUI is built with React and includes:
-- Tailwind CSS for styling
-- shadcn/ui components
-- Lucide icons
-- Vite for development
-
-## Usage
-
-### Command Line Interface
-
-#### Basic Dictionary Attack
-```bash
-python3.11 cli.py <hash> --type <hash_type> --attack dictionary --wordlist <wordlist_file>
+### 🌐 GUI DEPLOYMENT
+Built with cutting-edge tech stack:
+```
+React + Tailwind CSS + shadcn/ui + Lucide + Vite
 ```
 
-#### Example: MD5 Dictionary Attack
+---
+
+## 🎮 OPERATIONAL MANUAL
+
+### 💻 COMMAND LINE WARFARE
+
+#### 📖 Dictionary Assault
 ```bash
-python3.11 cli.py 5f4dcc3b5aa765d61d8327deb882cf99 --type md5 --attack dictionary --wordlist wordlist.txt
+# Basic dictionary bombardment
+python3.11 cli.py <target_hash> --type <hash_algo> --attack dictionary --wordlist <wordlist_path>
+
+# Example: Crack MD5 with rockyou.txt
+python3.11 cli.py 5f4dcc3b5aa765d61d8327deb882cf99 --type md5 --attack dictionary --wordlist rockyou.txt
 ```
 
-#### Brute Force Attack
+#### 💥 Brute Force Annihilation
 ```bash
-python3.11 cli.py <hash> --type <hash_type> --attack brute-force --charset <characters> --min-length <min> --max-length <max>
-```
+# Raw computational assault
+python3.11 cli.py <target_hash> --type <hash_algo> --attack brute-force --charset <char_set> --min-length <min> --max-length <max>
 
-#### Example: MD5 Brute Force Attack
-```bash
+# Example: Crack 3-char lowercase MD5
 python3.11 cli.py 900150983cd24fb0d6963f7d28e17f72 --type md5 --attack brute-force --charset abcdefghijklmnopqrstuvwxyz --min-length 1 --max-length 3
 ```
 
-#### Advanced Options
-- `--threads <number>`: Specify number of threads (default: 4)
-- `--salt <hex_string>`: Provide salt for scrypt hashes
-- `--session <file>`: Specify session file for progress saving
-
-### Graphical User Interface
-
-1. Navigate to the GUI directory:
+#### 🔧 ADVANCED TACTICAL OPTIONS
 ```bash
+--threads <n>         # Unleash parallel processing power
+--salt <hex>          # Handle salted targets (scrypt)
+--session <file>      # Save/resume your campaigns
+```
+
+### 🌐 WEB INTERFACE DEPLOYMENT
+
+```bash
+# Enter the GUI battleground
 cd password-cracker-gui
-```
 
-2. Start the development server:
-```bash
+# Launch the interface
 pnpm run dev --host
+
+# Access via browser: http://localhost:5174
 ```
 
-3. Open your browser and navigate to the provided URL (typically http://localhost:5174)
-
-### Python API
-
-You can also use the password cracker as a Python library:
+### 🐍 PYTHON API INTEGRATION
 
 ```python
 from main import calculate_hash, dictionary_attack, brute_force_attack
 
-# Calculate hash
-hash_value = calculate_hash("password", "md5")
+# Calculate target hash
+target = calculate_hash("password", "md5")
 
-# Dictionary attack
-result = dictionary_attack(hash_value, "md5", "wordlist.txt")
+# Launch dictionary strike
+result = dictionary_attack(target, "md5", "wordlist.txt")
 
-# Brute force attack
-result = brute_force_attack(hash_value, "md5", "abcdefghijklmnopqrstuvwxyz", 1, 8)
+# Initiate brute force campaign  
+result = brute_force_attack(target, "md5", "abcdefghijklmnopqrstuvwxyz", 1, 8)
 ```
 
-## Performance Benchmarks
+---
 
-Based on testing on a modern system, the password cracker achieves the following performance:
+## ⚡ PERFORMANCE METRICS
 
-### Hash Calculation Speed
-- **MD5**: ~1,400,000 hashes/second
-- **SHA-256**: ~1,200,000 hashes/second
-- **Bcrypt**: ~3.6 hashes/second (intentionally slow for security)
+### 🔥 HASH COMPUTATION SPEEDS
+```
+┌─────────────┬─────────────────────┐
+│ Algorithm   │ Speed (hashes/sec)  │
+├─────────────┼─────────────────────┤
+│ MD5         │ ~1,400,000          │
+│ SHA-256     │ ~1,200,000          │
+│ Bcrypt      │ ~3.6 (by design)    │
+└─────────────┴─────────────────────┘
+```
 
-### Multi-threading Performance
-Dictionary attacks show significant improvement with multiple threads:
-- 1 thread: 0.314 seconds
-- 4 threads: 0.175 seconds
-- 8 threads: 0.101 seconds
+### 🚀 MULTI-THREADING DOMINANCE
+```
+Threads    │ Execution Time    │ Performance Gain
+───────────┼──────────────────┼─────────────────
+1 thread   │ 0.314 seconds    │ Baseline
+4 threads  │ 0.175 seconds    │ 79% faster
+8 threads  │ 0.101 seconds    │ 211% faster
+```
 
-### Memory Usage
-- Base memory usage: ~37 MB
-- With 100,000 word dictionary: ~110 MB
-- Memory increase: ~73 MB for large wordlists
+### 💾 MEMORY WARFARE
+```
+Base footprint:           ~37 MB
+100K wordlist loaded:     ~110 MB
+Memory overhead:          ~73 MB
+```
 
-## Security Considerations
+---
 
-### Ethical Use
-This tool is designed for:
-- Educational purposes
-- Authorized penetration testing
-- Security research
-- Password strength assessment
+## ⚠️ SECURITY & ETHICS
 
-### Legal Disclaimer
-Users are responsible for ensuring they have proper authorization before using this tool. Unauthorized access to computer systems is illegal in most jurisdictions.
+### 🎯 AUTHORIZED TARGETS ONLY
+```
+[✓] Educational environments
+[✓] Authorized pen-testing
+[✓] Security research
+[✓] Your own systems
+[✗] Unauthorized access
+[✗] Illegal activities
+```
 
-### Best Practices
-- Only test on systems you own or have explicit permission to test
-- Use strong, unique passwords for your own accounts
-- Implement proper access controls and monitoring
-- Consider using password managers for secure password generation
+### ⚖️ LEGAL DISCLAIMER
+```
+╔══════════════════════════════════════════════════════╗
+║  WARNING: Unauthorized access is ILLEGAL             ║
+║  This tool is for AUTHORIZED testing ONLY            ║
+║  Use at your own risk and responsibility             ║
+╚══════════════════════════════════════════════════════╝
+```
 
-## File Structure
+### 🛡️ OPERATIONAL SECURITY
+- Only engage targets you own or have explicit written permission to test
+- Deploy strong, unique passwords for your own digital assets
+- Implement proper access controls and real-time monitoring
+- Consider using password managers for secure credential generation
+
+---
+
+## 📁 PROJECT ARCHITECTURE
 
 ```
 password_cracker/
-├── main.py                 # Core password cracking functionality
-├── cli.py                  # Command-line interface
-├── test_scenarios.py       # Comprehensive test suite
-├── performance_test.py     # Performance benchmarking
-├── session.json           # Session data (created during use)
-├── dummy_wordlist.txt     # Sample wordlist for testing
-├── password-cracker-gui/  # React GUI application
+├── 🐍 main.py                 # Core cracking engine
+├── 💻 cli.py                  # Terminal interface
+├── 🧪 test_scenarios.py       # Battle-tested scenarios
+├── 📊 performance_test.py     # Benchmarking suite
+├── 💾 session.json           # Campaign persistence
+├── 📝 dummy_wordlist.txt     # Training ammunition
+├── 🌐 password-cracker-gui/  # Web-based command center
 │   ├── src/
-│   │   ├── App.jsx        # Main GUI component
+│   │   ├── App.jsx        # Main control panel
 │   │   └── ...
 │   ├── package.json
 │   └── ...
-└── README.md              # This documentation
+└── 📖 README.md              # This war manual
 ```
 
-## Testing
+---
 
-### Unit Tests
-Run the comprehensive test suite:
+## 🧪 TESTING & VALIDATION
+
+### 🎯 UNIT TEST BATTERY
 ```bash
+# Deploy full test suite
 python -m unittest password_cracker/test_scenarios.py -v
 ```
 
-#### Test Categories
-1. **Hash Calculation**
-   - MD5, SHA-1, SHA-256 hash verification
-   - Bcrypt hashing and verification
-   - Error handling for invalid algorithms
+#### 🔬 TEST MATRIX
+```
+[+] Hash Calculation Verification
+    ├── MD5/SHA-1/SHA-256 accuracy
+    ├── Bcrypt implementation validation  
+    └── Error handling for invalid algorithms
 
-2. **Dictionary Attacks**
-   - Successful password recovery
-   - Handling of non-existent passwords
-   - Multi-threaded performance
-   - Large wordlist handling
+[+] Dictionary Attack Validation
+    ├── Successful password recovery scenarios
+    ├── Handling of failed attempts
+    ├── Multi-threaded performance validation
+    └── Large wordlist stress testing
 
-3. **Brute Force Attacks**
-   - Short password recovery
-   - Configurable character sets
-   - Length-based password generation
+[+] Brute Force Attack Testing
+    ├── Short password recovery validation
+    ├── Configurable character set testing
+    └── Length-based generation verification
 
-4. **Session Management**
-   - Session save/load functionality
-   - Progress tracking
-   - Result persistence
+[+] Session Management Testing
+    ├── Save/load functionality
+    ├── Progress tracking accuracy
+    └── Result persistence validation
 
-5. **Error Handling**
-   - Invalid algorithm detection
-   - Missing file handling
-   - Invalid input validation
+[+] Error Handling Matrix
+    ├── Invalid algorithm detection
+    ├── Missing file handling
+    └── Input validation testing
+```
 
-### Performance Testing
+### 📈 PERFORMANCE BENCHMARKING
 
-Run comprehensive performance benchmarks:
 ```bash
+# Launch comprehensive performance analysis
 python -m password_cracker.performance_test
 ```
 
-#### Performance Metrics Tracked
-- **Hash Calculation Speed**
-  - Operations per second for each algorithm
-  - Memory usage during hashing
-  - Multi-threading impact
-
-- **Dictionary Attack Performance**
-  - Passwords processed per second
-  - Scaling with wordlist size (100 - 100,000 entries)
-  - Multi-threading efficiency (1-8 threads)
-
-- **Brute Force Attack Performance**
-  - Attempts per second
-  - Performance across different password lengths
-  - Character set impact on performance
-
-#### Example Output
+#### 📊 BENCHMARK CATEGORIES
 ```
-=== System Information ===
-OS: Windows
-Processor: Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
-Python: 3.11.4
-Cores: 6
-RAM: 16.0 GB
+⚡ Hash Calculation Metrics
+├── Operations/second per algorithm
+├── Memory consumption analysis
+└── Multi-threading scaling impact
 
-=== Hash Performance ===
-MD5:          1,450,000 hashes/sec
-SHA-256:      1,210,000 hashes/sec
-Bcrypt:             320 hashes/sec
+🎯 Dictionary Attack Analysis  
+├── Passwords processed/second
+├── Wordlist size scaling (100-100K entries)
+└── Thread efficiency measurement (1-8 cores)
 
-=== Dictionary Attack (10,000 words) ===
-MD5 (1 thread):    25,000 pwd/sec
-MD5 (4 threads):   92,000 pwd/sec
-SHA-256 (4 threads): 88,000 pwd/sec
-
-=== Brute Force (lowercase, length 3) ===
-MD5: 15,000 attempts/sec
+💥 Brute Force Performance
+├── Attempts/second measurement
+├── Password length impact analysis
+└── Character set complexity effects
 ```
 
-### Memory Usage Testing
-The test suite includes memory profiling to ensure efficient operation with large wordlists:
-- Base memory usage: ~35 MB
-- Memory per 100,000 words: ~75 MB
-- Memory cleanup verification
+#### 📋 SAMPLE BENCHMARK OUTPUT
+```
+╔═════════════════════════════════════════════════════════════╗
+║                    SYSTEM RECONNAISSANCE                    ║
+╠═════════════════════════════════════════════════════════════╣
+║ OS:        Windows                                          ║
+║ CPU:       Intel(R) Core(TM) i7-10750H @ 2.60GHz            ║
+║ Python:    3.11.4                                           ║
+║ Cores:     6                                                ║
+║ RAM:       16.0 GB                                          ║
+╚═════════════════════════════════════════════════════════════╝
 
-### Continuous Integration
-To set up CI/CD for testing:
+╔═════════════════════════════════════════════════════════════╗
+║                    HASH PERFORMANCE METRICS                 ║
+╠═════════════════════════════════════════════════════════════╣
+║ MD5:           1,450,000 hashes/sec                         ║
+║ SHA-256:       1,210,000 hashes/sec                         ║
+║ Bcrypt:             320 hashes/sec                          ║
+╚═════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════╗
+║           DICTIONARY ATTACK (10,000 TARGETS)                ║
+╠═════════════════════════════════════════════════════════════╣
+║ MD5 (1 thread):      25,000 pwd/sec                         ║
+║ MD5 (4 threads):     92,000 pwd/sec                         ║
+║ SHA-256 (4 threads): 88,000 pwd/sec                         ║
+╚═════════════════════════════════════════════════════════════╝
+
+╔═════════════════════════════════════════════════════════════╗
+║        BRUTE FORCE (lowercase, 3-char targets)              ║
+╠═════════════════════════════════════════════════════════════╣
+║ MD5: 15,000 attempts/sec                                    ║
+╚═════════════════════════════════════════════════════════════╝
+```
+
+### 💾 MEMORY PROFILING
+```
+Memory footprint analysis:
+├── Base operation:        ~35 MB
+├── 100K wordlist load:    ~75 MB additional
+└── Memory cleanup:        Verified ✓
+```
+
+### 🔄 CONTINUOUS INTEGRATION PIPELINE
 ```yaml
 # .github/workflows/tests.yml
-name: Tests
+name: 🧪 Automated Testing Pipeline
 
 on: [push, pull_request]
 
@@ -263,116 +332,170 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.11
+    - name: 📥 Clone Repository
+      uses: actions/checkout@v3
+    - name: 🐍 Deploy Python 3.11
       uses: actions/setup-python@v4
       with:
         python-version: '3.11'
-    - name: Install dependencies
+    - name: 📦 Install Dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements-dev.txt
-    - name: Run tests
+    - name: 🚀 Execute Test Battery
       run: |
         python -m unittest discover -s tests -v
         python -m password_cracker.performance_test --output test-results/performance.txt
-    - name: Upload test results
+    - name: 📊 Upload Battle Results
       uses: actions/upload-artifact@v3
       with:
         name: test-results
         path: test-results/
 ```
 
-### Test Coverage
-To generate a test coverage report:
+### 📊 TEST COVERAGE ANALYSIS
 ```bash
+# Deploy coverage analysis
 pip install coverage
 coverage run -m unittest discover -s tests
 coverage report -m
 ```
 
-### Performance Profiling
-For detailed performance analysis:
+### 🔍 ADVANCED PROFILING
 ```bash
-# Profile dictionary attack
+# Profile dictionary assault performance
 python -m cProfile -o dict_attack.prof -m password_cracker.test_scenarios TestPasswordCracker.test_dictionary_attack
 
-# Generate report
+# Generate visual analysis
 snakeviz dict_attack.prof
 ```
 
-## Technical Implementation
+---
 
-### Core Architecture
-The password cracker is built with a modular architecture:
+## 🏗️ TECHNICAL ARCHITECTURE
 
-1. **Hash Calculation Module**: Handles various hash algorithms
-2. **Attack Engines**: Implements dictionary and brute force attacks
-3. **Session Manager**: Provides persistence and resume functionality
-4. **Threading Framework**: Enables parallel processing
-5. **User Interfaces**: CLI and GUI for different use cases
+### 🧠 CORE SYSTEM DESIGN
+```
+┌─────────────────────────────────────────────────────────┐
+│                    MODULAR ARCHITECTURE                 │
+├─────────────────────────────────────────────────────────┤
+│ [HASH ENGINE]     → Multi-algorithm hash processing     │
+│ [ATTACK CORES]    → Dictionary & brute force engines    │
+│ [SESSION MGR]     → Campaign persistence & recovery     │
+│ [THREAD POOL]     → Parallel processing framework       │ 
+│ [UI LAYERS]       → CLI & GUI interface systems         │
+└─────────────────────────────────────────────────────────┘
+```
 
-### Multi-threading Implementation
-The tool uses Python's `concurrent.futures.ThreadPoolExecutor` for parallel processing, allowing efficient utilization of multiple CPU cores during password cracking operations.
+### ⚙️ MULTI-THREADING IMPLEMENTATION
+Powered by Python's `concurrent.futures.ThreadPoolExecutor` for maximum CPU core utilization during assault operations.
 
-### Session Management
-Session data is stored in JSON format, allowing users to save progress and resume interrupted cracking sessions.
+### 💾 SESSION PERSISTENCE
+JSON-based session storage enables campaign interruption and resumption without losing progress.
 
-## Troubleshooting
+---
 
-### Common Issues
+## 🔧 TROUBLESHOOTING & FIXES
 
-#### "Module not found" errors
-Ensure all required packages are installed:
+### ❌ COMMON BATTLEFIELD ISSUES
+
+#### Module Import Failures
 ```bash
+# Deploy missing dependencies
 pip install bcrypt scrypt argon2-cffi psutil
 ```
 
-#### GUI not loading
-1. Ensure Node.js is installed
-2. Navigate to the GUI directory
-3. Install dependencies: `pnpm install`
-4. Start the development server: `pnpm run dev --host`
+#### GUI Deployment Failures
+```bash
+# 1. Verify Node.js installation
+# 2. Navigate to GUI directory
+cd password-cracker-gui
 
-#### Slow performance
-- Increase thread count with `--threads` parameter
-- Use smaller wordlists for testing
-- Consider the computational cost of secure hash functions like Bcrypt
+# 3. Install dependencies
+pnpm install
 
-### Performance Optimization
-- Use SSD storage for large wordlists
-- Increase available RAM for better performance
-- Consider GPU acceleration for future versions
+# 4. Launch interface
+pnpm run dev --host
+```
 
-## Future Enhancements
+#### Performance Degradation
+```
+[!] Increase thread count: --threads <number>
+[!] Use smaller wordlists for testing
+[!] Remember: Bcrypt is DESIGNED to be slow
+```
 
-### Planned Features
-- GPU acceleration support
-- Rainbow table attacks
-- Hybrid attack methods
-- Distributed cracking across multiple machines
-- Additional hash algorithm support
-- Advanced rule-based attacks
+### 🚀 PERFORMANCE OPTIMIZATION
+```
+Hardware Recommendations:
+├── SSD storage for wordlist I/O
+├── Maximum available RAM
+└── Multi-core CPU for threading
+```
 
-### Contributing
-This project is designed for educational purposes. Contributions should focus on:
-- Performance improvements
-- Additional hash algorithm support
-- Enhanced user interface features
-- Better documentation and examples
+---
 
-## License and Disclaimer
+## 🔮 FUTURE WEAPONIZATION
 
-This software is provided for educational and authorized security testing purposes only. Users are solely responsible for ensuring compliance with applicable laws and regulations. The authors assume no liability for misuse of this software.
+### 🎯 PLANNED UPGRADES
+```
+[COMING SOON]
+├── 🎮 GPU acceleration support
+├── 🌈 Rainbow table attacks  
+├── 🔄 Hybrid attack methodologies
+├── 🌐 Distributed cracking networks
+├── 📚 Extended hash algorithm support
+└── 🧠 AI-powered rule-based attacks
+```
 
-## Version Information
+### 🤝 CONTRIBUTION GUIDELINES
+Join the resistance! Focus contributions on:
+- Performance enhancements
+- New hash algorithm implementations
+- Enhanced UI/UX features
+- Documentation improvements
 
-- **Version**: 1.0.0
-- **Author**: 
-  
-  ![](seal.png)
-  
-- **Last Updated**: August 31, 2025
-- **Python Version**: 3.11+
-- **Node.js Version**: 20.x+
+---
 
+## ⚖️ LEGAL & DISCLAIMER
+
+```
+╔═══════════════════════════════════════════════════════════════╗
+║                         ⚠️  NOTICE  ⚠️                       ║
+╠═══════════════════════════════════════════════════════════════╣
+║                                                               ║
+║  This software is provided for EDUCATIONAL and AUTHORIZED     ║
+║  security testing purposes ONLY. Users bear FULL              ║
+║  responsibility for legal compliance. Authors assume NO       ║
+║  liability for misuse. Use wisely, hack responsibly.          ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+```
+
+---
+
+## 📋 SYSTEM METADATA
+
+```
+┌─────────────────────────────────────────────────────────┐
+│ Version:      1.0.0                                     │
+│ Author:                                                 │
+│                ![](seal.png)                            │
+│ Last Update:  August 31, 2025                           │
+│ Python Req:   3.11+                                     │
+│ Node.js Req:  20.x+                                     │
+│ License:      Educational/Authorized Testing Only       │
+└─────────────────────────────────────────────────────────┘
+```
+
+---
+
+```
+    ╔════════════════════════════════════════════════════════╗
+    ║  "The best way to secure a system is to think like     ║
+    ║   an attacker. Know your enemy, know their tools."     ║
+    ║                                         - Anonymous    ║
+    ╚════════════════════════════════════════════════════════╝
+```
+
+**Remember**: With great power comes great responsibility. Happy hacking, but keep it legal! 🔒
