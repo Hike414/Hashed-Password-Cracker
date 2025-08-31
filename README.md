@@ -479,14 +479,16 @@ Join the resistance! Focus contributions on:
 ```
 ┌─────────────────────────────────────────────────────────┐
 │ Version:      1.0.0                                     │
-│ Author:                                                 │
-│                ![](seal.png)                            │
-│                                                         │
 │ Last Update:  August 31, 2025                           │
 │ Python Req:   3.11+                                     │
 │ Node.js Req:  20.x+                                     │
 │ License:      Educational/Authorized Testing Only       │
 └─────────────────────────────────────────────────────────┘
+
+**Author**: 
+  
+  ![](seal.png)
+
 ```
 
 ---
