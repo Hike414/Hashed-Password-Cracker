@@ -485,9 +485,8 @@ Join the resistance! Focus contributions on:
 │ License:      Educational/Authorized Testing Only       │
 └─────────────────────────────────────────────────────────┘
 
-**Author**: 
-  
-  ![](seal.png)
+**Author**  
+![Seal](/seal.png)
 
 ```
 
