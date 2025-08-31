@@ -1,0 +1,5 @@
+bcrypt==4.3.0
+scrypt==0.9.4
+argon2-cffi==25.1.0
+psutil==7.0.0
+

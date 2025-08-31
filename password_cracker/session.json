@@ -1,0 +1,10 @@
+{
+    "md5_cracked": "password",
+    "sha256_cracked": "123456",
+    "bcrypt_cracked": "mysecretpassword",
+    "scrypt_cracked": "anothersecret",
+    "argon2_cracked": "argon2password",
+    "brute_force_cracked": "abc",
+    "md5_dictionary_cracked": "password",
+    "md5_brute-force_cracked": "abc"
+}
