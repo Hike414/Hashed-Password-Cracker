@@ -255,7 +255,7 @@ This software is provided for educational and authorized security testing purpos
 - **Version**: 1.0.0
 - **Author**: 
   
-  ![](seal.png)
+  ![](../seal.png)
   
 - **Last Updated**: August 31, 2025
 - **Python Version**: 3.11+
